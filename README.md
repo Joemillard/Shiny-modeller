@@ -1,3 +1,3 @@
 # Shiny-modeller
 
-The Shiny-modeller is an R statistical modelling R.
+The Shiny-modeller is a platform for statistical modelling in R.
