@@ -33,6 +33,8 @@ shinyServer(function(input, output) {
   
   observeEvent(input$resetviewer, {
     
+    alert("Are you sure you want to reset the file? Please note that resetting will remove any current plots or analysis")
+    
     reset("form")
     
     values$DAT <- data.frame()

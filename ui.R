@@ -29,7 +29,7 @@ shinyUI(fluidPage(
           fileInput("file","Upload file"),
           br(),
           br(),
-          actionButton("resetviewer", strong("Reset viewer"))
+          actionButton("resetviewer", strong("Reset file"))
         ),
         mainPanel(
           tableOutput("contents")
