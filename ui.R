@@ -9,22 +9,29 @@ shinyUI(fluidPage(
     id = "form",
   
   # Application title
-  titlePanel("Linear model plotter"),
+  
+  titlePanel("R Shiny modelling platform"),
+  navbarPage("Menu", 
+    tabPanel("Introduction",
+        sidebarPanel()),
+    tabPanel("Linear regression",
   
   # Sidebar 
-  sidebarLayout(
-    sidebarPanel(
-      fileInput("file","Upload file"),
-      actionButton("plot","Plot"),
-      br(),
-      br(),
-      tableOutput("contents"),
-      actionButton("resetAll", strong("Reset"))
-    ),
+      sidebarLayout(
+        sidebarPanel(
+          fileInput("file","Upload file"),
+          actionButton("plot","Plot"),
+          br(),
+          br(),
+          tableOutput("contents"),
+          actionButton("resetAll", strong("Reset"))
+        ),
     
     # Show a plot
-    mainPanel(
-       plotOutput("distPlot")
+        mainPanel(
+          plotOutput("distPlot")
+        )))
+      )
     )
   )
-)))
+)
