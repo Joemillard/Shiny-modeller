@@ -20,19 +20,18 @@ shinyServer(function(input, output) {
   
   observeEvent(input$plot, {
     
-    #show("distplot")
+    #show("linearplot")
     
-    output$distPlot <- renderPlot({
-    
+    output$linearPlot <- renderPlot({
+      
       ggplot(data = values$DAT, aes(x = x, y = y)) + 
         geom_point(color = 'black') +
         geom_smooth(method = "lm")
-    
+      
     })
-    
   })
   
-  observeEvent(input$resetAll, {
+  observeEvent(input$resetviewer, {
     
     reset("form")
     
@@ -40,8 +39,11 @@ shinyServer(function(input, output) {
     
     hide("contents")
     
-    #hide("distplot")
-    
     })
   
+  observeEvent(input$resetlinear, {
+    
+    output$linearPlot <- renderPlot({NA})
+    
+  })
 })
