@@ -36,6 +36,8 @@ shinyUI(fluidPage(
       )
     ),
     
+    tabPanel("Explore data"),
+    
     # linear regression tab
     tabPanel("Linear regression",
       sidebarLayout(
