@@ -17,7 +17,6 @@ shinyServer(function(input, output) {
     
   })
   
-  
   observeEvent(input$plot, {
     
     # show('linearplot')
