@@ -4,7 +4,7 @@ library(ggplot2)
 library(shinyjs)
 
 shinyServer(function(input, output) {
-   
+  
   values <- reactiveValues(DAT = NULL)
   
   observeEvent(input$file, {
@@ -20,20 +20,20 @@ shinyServer(function(input, output) {
   
   observeEvent(input$plot, {
     
-    #show("linearplot")
+    # show('linearplot')
     
     output$linearPlot <- renderPlot({
       
-      ggplot(data = values$DAT, aes(x = x, y = y)) + 
-        geom_point(color = 'black') +
-        geom_smooth(method = "lm")
+      ggplot(data = values$DAT, aes(x = x, y = y)) + geom_point(color = "black") + 
+      geom_smooth(method = "lm")
       
     })
   })
   
   observeEvent(input$resetlinear, {
     
-    output$linearPlot <- renderPlot({NA})
+    output$linearPlot <- renderPlot({NA
     
+    })
   })
 })

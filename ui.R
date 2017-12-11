@@ -26,7 +26,7 @@ shinyUI(fluidPage(
     tabPanel("Data viewer",
       sidebarLayout(
         sidebarPanel(
-          fileInput("file","Upload file"),
+          fileInput("file", "Upload file"),
           br(),
           br()
         ),
@@ -42,7 +42,7 @@ shinyUI(fluidPage(
     tabPanel("Linear regression",
       sidebarLayout(
         sidebarPanel(
-          actionButton("plot","Plot"),
+          actionButton("plot", "Plot"),
           br(),
           br(),
           actionButton("resetlinear", strong("Reset plot"))
