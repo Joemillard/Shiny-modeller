@@ -5,11 +5,15 @@ library(shinyjs)
 
 shinyServer(function(input, output) {
   
+  
+  
   values <- reactiveValues(DAT = NULL)
   
   observeEvent(input$file, {
     
     values$DAT <- read.csv(input$file$datapath)
+    
+    show("variables")
     
     show("contents")
     
@@ -23,7 +27,7 @@ shinyServer(function(input, output) {
     
     output$linearPlot <- renderPlot({
       
-      ggplot(data = values$DAT, aes(x = x, y = y)) + geom_point(color = "black") + 
+      ggplot(data = values$DAT, aes(x = values$DAT[,1], y = values$DAT[,2])) + geom_point(color = "black") + 
       geom_smooth(method = "lm")
       
     })
