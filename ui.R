@@ -28,10 +28,10 @@ shinyUI(fluidPage(
         sidebarPanel(
           fileInput("file", "Upload file"),
           br(),
-          #checkboxGroupInput("variables", "Variables",
+          checkboxGroupInput("variables", "Variables", ""
            #                  choiceNames = list(colnames(values$DAT, do.NULL = FALSE)),
             #                 choiceValues = list(colnames(values$DAT, do.NULL = FALSE))
-             #                ),
+                             ),
           br()
         ),
         mainPanel(

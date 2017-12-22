@@ -5,15 +5,13 @@ library(shinyjs)
 
 shinyServer(function(input, output) {
   
-  
-  
   values <- reactiveValues(DAT = NULL)
   
   observeEvent(input$file, {
     
     values$DAT <- read.csv(input$file$datapath)
     
-    show("variables")
+    #show("variables")
     
     show("contents")
     
