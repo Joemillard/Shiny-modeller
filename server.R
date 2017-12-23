@@ -7,21 +7,23 @@ shinyServer(function(input, output) {
   
   values <- reactiveValues(DAT = NULL)
   
-  observeEvent(input$file, {
+  data <- eventReactive(input$file, {
     
-    values$DAT <- read.csv(input$file$datapath)
-    
-    #show("variables")
-    
-    show("contents")
-    
-    output$contents <- renderTable(values$DAT)
+    read.csv(input$file$datapath)
     
   })
   
-  observeEvent(input$plot, {
+  
+  observeEvent(input$file, {
     
-    # show('linearplot')
+   output$contents <- renderDataTable(data())
+   
+   show("contents")
+  
+  })
+  
+  
+  observeEvent(input$plot, {
     
     output$linearPlot <- renderPlot({
       
