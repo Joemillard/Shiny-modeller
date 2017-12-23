@@ -20,6 +20,8 @@ shinyServer(function(input, output, session) {
    show("contents")
   
    updateCheckboxGroupInput(session, "variables", choices = colnames(data_file()))
+   
+   updateCheckboxGroupInput(session, "plot_variables", choices = colnames(data_file()))
   
   })
   

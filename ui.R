@@ -46,6 +46,9 @@ shinyUI(fluidPage(
           actionButton("plot", "Plot"),
           br(),
           br(),
+          checkboxGroupInput("plot_variables", "Select columns"),
+          br(),
+          br(),
           actionButton("resetlinear", strong("Reset plot"))
         ),
     
