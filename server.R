@@ -27,7 +27,7 @@ shinyServer(function(input, output) {
     
     output$linearPlot <- renderPlot({
       
-      ggplot(data = values$DAT, aes(x = values$DAT[,1], y = values$DAT[,2])) + geom_point(color = "black") + 
+      ggplot(data = data(), aes(x = data()[,1], y = data()[,2])) + geom_point(color = "black") + 
       geom_smooth(method = "lm")
       
     })
