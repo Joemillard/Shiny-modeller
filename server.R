@@ -25,6 +25,12 @@ shinyServer(function(input, output, session) {
   
   })
   
+  observeEvent(input$variables, {
+    
+    output$contents <- renderDataTable(data_file()[,input$variables])
+    
+  })
+  
   observeEvent(input$plot, {
     
     output$linearPlot <- renderPlot({

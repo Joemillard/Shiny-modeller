@@ -28,7 +28,7 @@ shinyUI(fluidPage(
         sidebarPanel(
           fileInput("file", "Upload file"),
           br(),
-          checkboxGroupInput("variables", "Select columns"),
+          checkboxGroupInput("variables", "Select columns", inline = FALSE),
           br()
         ),
         mainPanel(
@@ -46,7 +46,7 @@ shinyUI(fluidPage(
           actionButton("plot", "Plot"),
           br(),
           br(),
-          checkboxGroupInput("plot_variables", "Select columns"),
+          checkboxGroupInput("plot_variables", "Select variables", inline = TRUE),
           br(),
           br(),
           actionButton("resetlinear", strong("Reset plot"))
