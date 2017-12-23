@@ -12,16 +12,16 @@ shinyServer(function(input, output) {
     read.csv(input$file$datapath)
     
   })
-  
-  
+
   observeEvent(input$file, {
     
    output$contents <- renderDataTable(data())
    
    show("contents")
   
-  })
+   #updateCheckboxGroupInput("variables", choices = colnames(data()))
   
+  })
   
   observeEvent(input$plot, {
     

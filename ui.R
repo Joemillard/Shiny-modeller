@@ -28,8 +28,8 @@ shinyUI(fluidPage(
         sidebarPanel(
           fileInput("file", "Upload file"),
           br(),
-          checkboxGroupInput("variables", "Select columns","",
-                             choices = colnames(data()), inline = F
+          checkboxGroupInput("variables", "Select columns",
+                             choices = NA
                              ),
           br()
         ),
