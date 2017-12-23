@@ -3,11 +3,11 @@ library(shiny)
 library(ggplot2)
 library(shinyjs)
 
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
   
-  values <- reactiveValues(DAT = NULL)
+  #values <- reactiveValues(DAT = NULL)
   
-  data <- eventReactive(input$file, {
+  data_file <- eventReactive(input$file, {
     
     read.csv(input$file$datapath)
     
@@ -15,11 +15,11 @@ shinyServer(function(input, output) {
 
   observeEvent(input$file, {
     
-   output$contents <- renderDataTable(data())
+   output$contents <- renderDataTable(data_file())
    
    show("contents")
   
-   #updateCheckboxGroupInput("variables", choices = colnames(data()))
+   updateCheckboxGroupInput(session, "variables", choices = colnames(data_file()))
   
   })
   
@@ -27,7 +27,7 @@ shinyServer(function(input, output) {
     
     output$linearPlot <- renderPlot({
       
-      ggplot(data = data(), aes(x = data()[,1], y = data()[,2])) + geom_point(color = "black") + 
+      ggplot(data = data_file(), aes(x = data_file()[,1], y = data_file()[,2])) + geom_point(color = "black") + 
       geom_smooth(method = "lm")
       
     })
