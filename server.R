@@ -38,8 +38,9 @@ shinyServer(function(input, output, session) {
   
   observeEvent(input$resetlinear, {
     
-    output$linearPlot <- renderPlot({NA
+    output$linearPlot <- renderPlot({NA})
     
-    })
+    updateCheckboxGroupInput(session, "plot_variables", choices = NA)
+    
   })
 })
