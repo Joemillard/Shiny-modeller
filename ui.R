@@ -47,7 +47,7 @@ shinyUI(fluidPage(
           br(),
           br(),
           selectInput("dependent_variables", "Dependent variable", ""),
-          selectInput("independent_variables", "Independent vardiable", ""),
+          selectInput("independent_variables", "Independent variable", ""),
           br(),
           br(),
           actionButton("resetlinear", strong("Reset plot"))
