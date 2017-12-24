@@ -39,6 +39,7 @@ shinyServer(function(input, output, session) {
       
       ggplot(data = data_file(), aes(x = data_file()[,input$dependent_variables], y = data_file()[,input$independent_variables])) + 
       geom_point(color = "black") + 
+      labs(x = input$dependent_variables, y = input$independent_variables) +
       geom_smooth(method = "lm")
       
     })
