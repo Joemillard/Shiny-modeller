@@ -21,7 +21,9 @@ shinyServer(function(input, output, session) {
   
    updateCheckboxGroupInput(session, "variables", choices = colnames(data_file()))
    
-   updateCheckboxGroupInput(session, "plot_variables", choices = colnames(data_file()))
+   updateSelectInput(session, "dependent_variables", choices = colnames(data_file()))
+   
+   updateSelectInput(session, "independent_variables", choices = colnames(data_file()))
   
   })
   
@@ -35,7 +37,7 @@ shinyServer(function(input, output, session) {
     
     output$linearPlot <- renderPlot({
       
-      ggplot(data = data_file(), aes(x = data_file()[,1], y = data_file()[,2])) + 
+      ggplot(data = data_file(), aes(x = data_file()[,input$dependent_variables], y = data_file()[,input$independent_variables])) + 
       geom_point(color = "black") + 
       geom_smooth(method = "lm")
       

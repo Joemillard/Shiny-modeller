@@ -46,7 +46,8 @@ shinyUI(fluidPage(
           actionButton("plot", "Plot"),
           br(),
           br(),
-          checkboxGroupInput("plot_variables", "Select variables", inline = TRUE),
+          selectInput("dependent_variables", "Dependent variable", ""),
+          selectInput("independent_variables", "Independent vardiable", ""),
           br(),
           br(),
           actionButton("resetlinear", strong("Reset plot"))
