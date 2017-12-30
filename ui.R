@@ -5,59 +5,59 @@ library(ggplot2)
 
 shinyUI(fluidPage(
   useShinyjs(),
+  
   div(
     id = "form",
   
-  # Application title
-  titlePanel("R Shiny modelling platform"),
+    # Application title
+    titlePanel("R Shiny modelling platform"),
   
-  # nav bar
-  navbarPage("Menu", 
+    # nav bar
+    navbarPage("Menu", 
     
-    # introduction tab
-    tabPanel("Introduction",
-      sidebarLayout(
-        sidebarPanel(),
-        mainPanel()
+      # introduction tab
+      tabPanel("Introduction",
+        sidebarLayout(
+          sidebarPanel(),
+          mainPanel()
+          )
+        ),
+    
+      # data viewer tab
+      tabPanel("Data viewer",
+        sidebarLayout(
+          sidebarPanel(
+            fileInput("file", "Upload file"),
+            br(),
+            checkboxGroupInput("variables", "Select columns", inline = FALSE),
+            br()
+          ),
+          mainPanel(
+            dataTableOutput("contents")
+          )
         )
       ),
     
-    # data viewer tab
-    tabPanel("Data viewer",
-      sidebarLayout(
-        sidebarPanel(
-          fileInput("file", "Upload file"),
-          br(),
-          checkboxGroupInput("variables", "Select columns", inline = FALSE),
-          br()
-        ),
-        mainPanel(
-          dataTableOutput("contents")
+      # explore data tab
+      tabPanel("Explore data"),
+    
+      # linear regression tab
+      tabPanel("Linear regression",
+        sidebarLayout(
+          sidebarPanel(
+            selectInput("x_variables", "X variable", ""),
+            selectInput("y_variables", "Y variable", ""),
+            br(),
+            br(),
+            actionButton("plot", "Plot"),
+            actionButton("resetlinear", strong("Reset plot"))
+          ),
+    
+      # plot linear regression
+          mainPanel(
+            plotOutput("linearPlot")
+          )))
         )
-      )
-    ),
-    
-    tabPanel("Explore data"),
-    
-    # linear regression tab
-    tabPanel("Linear regression",
-      sidebarLayout(
-        sidebarPanel(
-          actionButton("plot", "Plot"),
-          br(),
-          br(),
-          selectInput("dependent_variables", "Dependent variable", ""),
-          selectInput("independent_variables", "Independent variable", ""),
-          br(),
-          br(),
-          actionButton("resetlinear", strong("Reset plot"))
-        ),
-    
-    # plot linear regression
-        mainPanel(
-          plotOutput("linearPlot")
-        )))
       )
     )
   )
-)
